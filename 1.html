@@ -1,0 +1,850 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Class 6 Science — Chapter 1 Quiz (50) — Ultra Pro Max Advanced</title>
+  <meta name="description" content="Advanced Quiz: offline autosave, timer, shuffle, exam/practice, negative marking, review, print/PDF, search, difficulty/tag filters, image questions."/>
+  <style>
+    :root{
+      --bg:#0b0f19;--card:#121a2a;--text:#e9f0ff;--muted:#9fb0d0;--accent:#7aa7ff;--accent2:#7dffb2;
+      --danger:#ff6b6b;--warn:#ffd166;--border:rgba(255,255,255,.10);--shadow:0 18px 40px rgba(0,0,0,.45);
+      --r:18px;--mono:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      --sans:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+    [data-theme="light"]{
+      --bg:#f6f8ff;--card:#fff;--text:#0c1222;--muted:#5a6b8c;--accent:#2f6bff;--accent2:#12a36d;
+      --danger:#d63535;--warn:#b8860b;--border:rgba(14,20,34,.12);--shadow:0 14px 32px rgba(14,20,34,.12);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family:var(--sans);color:var(--text);line-height:1.45;
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(122,167,255,.22), transparent 60%),
+        radial-gradient(900px 600px at 85% 15%, rgba(125,255,178,.14), transparent 55%),
+        radial-gradient(900px 600px at 60% 80%, rgba(255,209,102,.12), transparent 55%),
+        var(--bg);
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:18px}
+    header{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:14px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:46px;height:46px;border-radius:16px;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:var(--shadow);}
+    h1{font-size:18px;margin:0} .sub{color:var(--muted);font-size:13px;margin-top:2px}
+    .btn{
+      border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--text);
+      padding:10px 12px;border-radius:12px;cursor:pointer;display:inline-flex;gap:8px;align-items:center;
+      user-select:none;transition:.15s
+    }
+    .btn:hover{background:rgba(122,167,255,.10);border-color:rgba(122,167,255,.35)}
+    .primary{background:linear-gradient(135deg, rgba(122,167,255,.22), rgba(125,255,178,.12));border-color:rgba(122,167,255,.35)}
+    .danger{border-color:rgba(255,107,107,.35)} .warn{border-color:rgba(255,209,102,.35)}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+    @media (max-width:920px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+    .hd{padding:14px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+    .bd{padding:16px}
+    .pill{border:1px solid var(--border);background:rgba(255,255,255,.03);padding:8px 10px;border-radius:999px;display:flex;gap:8px;align-items:center}
+    .pill b{font-family:var(--mono);font-size:12px}
+    .kpi{display:flex;gap:10px;flex-wrap:wrap}
+    .muted{color:var(--muted)}
+    .progress{height:10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--border);overflow:hidden;min-width:240px}
+    .bar{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+    .tag{font-size:12px;color:var(--muted);padding:6px 10px;border-radius:999px;border:1px dashed var(--border);background:rgba(255,255,255,.03)}
+    .qtitle{font-size:16px;margin:0 0 12px 0}
+    .qmeta{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 12px}
+    .chip{font-size:12px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--muted);padding:6px 10px;border-radius:999px}
+    .chip strong{color:var(--text);font-weight:700}
+    .qimg{border:1px solid var(--border);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.03);margin:10px 0 12px}
+    .qimg img{width:100%;height:auto;display:block}
+    .qimg .cap{padding:10px 12px;color:var(--muted);font-size:12px}
+    .opt{border:1px solid var(--border);border-radius:14px;padding:12px;display:flex;gap:10px;align-items:flex-start;cursor:pointer;margin-bottom:10px;transition:.15s}
+    .opt:hover{background:rgba(122,167,255,.08);border-color:rgba(122,167,255,.28)}
+    .letter{width:28px;height:28px;border-radius:10px;display:grid;place-items:center;border:1px solid var(--border);
+      background:rgba(255,255,255,.03);font-family:var(--mono);font-size:12px;color:var(--muted)}
+    .row{display:flex;gap:10px;flex-wrap:wrap} .row .btn{flex:1 1 auto;justify-content:center}
+    .callout{border-left:4px solid var(--accent);padding:10px 12px;background:rgba(122,167,255,.08);border-radius:12px;margin-top:12px}
+    .explain{display:none;margin-top:12px;border:1px solid var(--border);border-radius:14px;padding:12px;background:rgba(255,255,255,.03)}
+    .result{display:none}
+    .score{font-size:34px;font-weight:800}
+    .list{display:grid;gap:10px;margin-top:10px}
+    .reviewItem{border:1px solid var(--border);border-radius:14px;padding:12px;background:rgba(255,255,255,.03)}
+    .badge{font-family:var(--mono);font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);color:var(--muted)}
+    .ok{border-color:rgba(125,255,178,.35);color:var(--accent2)} .no{border-color:rgba(255,107,107,.35);color:var(--danger)}
+    dialog{border:none;border-radius:18px;padding:0;width:min(780px,92vw);box-shadow:var(--shadow);background:var(--card);color:var(--text)}
+    input[type="number"], input[type="search"], select{
+      width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--border);
+      background:rgba(255,255,255,.03);color:var(--text)
+    }
+    select option{color:#111}
+    .small{font-size:12px}
+    @media print {
+      header,.noPrint,dialog{display:none !important;}
+      body{background:#fff;color:#000}
+      .card{box-shadow:none;border:1px solid #ddd}
+      .muted{color:#333}
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header class="noPrint">
+    <div class="brand">
+      <div class="logo"></div>
+      <div>
+        <h1 id="titleH">Class 6 Science — Chapter 1: বৈজ্ঞানিক প্রক্রিয়া ও পরিমাপ (50 প্রশ্ন)</h1>
+        <div class="sub">Pool: <span id="poolN">50</span> • Difficulty/Tag Filter • Image slot • Offline autosave</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn" id="toggleTheme">🌓 Theme</button>
+      <button class="btn warn" id="openSettings">⚙️ Settings</button>
+      <button class="btn" id="fullBtn">⛶ Fullscreen</button>
+      <button class="btn danger" id="resetAll">♻️ Reset</button>
+    </div>
+  </header>
+
+  <div class="grid">
+    <section class="card">
+      <div class="hd noPrint">
+        <div class="kpi">
+          <div class="pill"><span>Q</span><b id="qIndex">1/50</b></div>
+          <div class="pill"><span>⏱️</span><b id="timer">--:--</b></div>
+          <div class="pill"><span>🎯</span><b id="acc">0%</b></div>
+          <div class="pill"><span>⭐</span><b id="scoreLive">0</b></div>
+        </div>
+        <div class="progress"><div class="bar" id="pbar"></div></div>
+      </div>
+
+      <div class="bd" id="quizPane">
+        <div class="row noPrint" style="margin-bottom:10px">
+          <span class="tag" id="modeTag">MODE: Exam</span>
+          <span class="tag" id="shuffleTag">SHUFFLE: On</span>
+          <span class="tag" id="timerTag">TIMER: On</span>
+          <span class="tag" id="markTag">MARK: +1 / −0.25</span>
+        </div>
+
+        <div class="qmeta" id="qMetaRow"></div>
+        <div class="qimg" id="qImgBox" style="display:none">
+          <img id="qImg" alt="Question image"/>
+          <div class="cap" id="qImgCap"></div>
+        </div>
+
+        <h2 class="qtitle" id="qText">Loading…</h2>
+        <div id="options"></div>
+
+        <div class="row noPrint" style="margin-top:12px">
+          <button class="btn" id="prevBtn">⬅️ Prev</button>
+          <button class="btn primary" id="checkBtn">✅ Check</button>
+          <button class="btn primary" id="nextBtn">Next ➡️</button>
+        </div>
+
+        <div class="row noPrint" style="margin-top:10px">
+          <button class="btn warn" id="hintBtn">💡 Hint</button>
+          <button class="btn" id="toggleExplain">🧾 Explanation</button>
+          <button class="btn danger" id="flagBtn">🚩 Flag</button>
+          <button class="btn" id="finishBtn">🏁 Finish</button>
+        </div>
+
+        <div class="callout" id="hintBox" style="display:none">
+          <b>Tip:</b> Exam mode এ Check দিলে সঠিক/ভুল বুঝবে। Practice mode এ ব্যাখ্যা সাথে সাথে দেখা যাবে।
+        </div>
+
+        <div class="explain" id="explainBox">
+          <div class="small muted" style="font-family:var(--mono);margin-bottom:6px">Explanation</div>
+          <div id="explainText" class="muted"></div>
+        </div>
+      </div>
+
+      <div class="bd result" id="resultPane">
+        <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center">
+          <div>
+            <div class="muted">Your Score</div>
+            <div class="score" id="scoreText">0</div>
+            <div class="muted small" id="scoreMeta"></div>
+          </div>
+          <div class="row noPrint" style="min-width:320px">
+            <button class="btn primary" id="restartBtn">🔁 New Attempt</button>
+            <button class="btn" id="reviewBtn">🧠 Review</button>
+            <button class="btn warn" id="printBtn">🖨️ Print / Save PDF</button>
+          </div>
+        </div>
+
+        <div class="list" id="reviewList" style="display:none"></div>
+
+        <details class="noPrint" style="margin-top:12px;border:1px solid var(--border);border-radius:14px;padding:10px 12px;background:rgba(255,255,255,.03)">
+          <summary style="cursor:pointer;font-weight:650">Export / Share (JSON)</summary>
+          <pre id="exportBox" style="white-space:pre-wrap;word-break:break-word;"></pre>
+        </details>
+      </div>
+    </section>
+
+    <aside class="card noPrint">
+      <div class="hd">
+        <div>
+          <b>Quick Panel</b>
+          <div class="sub">Search • Filter • Jump • Flags • Autosave</div>
+        </div>
+      </div>
+      <div class="bd">
+        <div class="muted small">Search (question text)</div>
+        <input type="search" id="searchBox" placeholder="যেমন: একক / SI / দৈর্ঘ্য / আয়তন ..." />
+
+        <div style="margin-top:12px" class="muted small">Difficulty Filter</div>
+        <select id="difficultySelect">
+          <option value="all">All</option>
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="Hard">Hard</option>
+        </select>
+
+        <div style="margin-top:12px" class="muted small">Tag Filter</div>
+        <select id="tagSelect">
+          <option value="all">All</option>
+        </select>
+
+        <div class="row" style="margin-top:12px">
+          <button class="btn danger" id="onlyFlaggedBtn">🚩 Only Flagged: Off</button>
+          <button class="btn primary" id="applyFilterBtn">✅ Apply Filter</button>
+        </div>
+
+        <div class="muted small" style="margin-top:14px">Jump to question</div>
+        <div class="row" id="jumpRow" style="margin-top:8px"></div>
+
+        <div class="muted small" style="margin-top:14px">Status</div>
+        <div class="kpi" style="margin-top:8px">
+          <div class="pill"><span>✅</span><b id="doneCount">0</b><span class="muted">done</span></div>
+          <div class="pill"><span>🚩</span><b id="flagCount">0</b><span class="muted">flags</span></div>
+          <div class="pill"><span>📚</span><b id="poolCount">50</b></div>
+        </div>
+
+        <div class="callout">
+          Offline save ON (localStorage). Close করলে progress থাকবে।
+          <div class="muted small" style="margin-top:6px">Storage key: <code style="font-family:var(--mono)">ultraProMaxQuiz.v50.adv.tagged</code></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <dialog id="settingsDlg">
+    <div class="hd" style="display:flex;justify-content:space-between;align-items:center">
+      <b>Settings</b>
+      <button class="btn" id="closeSettings">✖️ Close</button>
+    </div>
+    <div class="bd">
+      <div class="row">
+        <button class="btn" id="toggleShuffle">🔀 Toggle Shuffle</button>
+        <button class="btn" id="toggleTimer">⏱️ Toggle Timer</button>
+        <button class="btn" id="toggleMode">🧪 Toggle Mode</button>
+      </div>
+
+      <label class="small">Questions per attempt
+        <input type="number" id="qPerAttempt" min="5" max="50" step="1" />
+      </label>
+
+      <label class="small">Timer duration (minutes)
+        <input type="number" id="minutes" min="1" max="120" step="1" />
+      </label>
+
+      <div class="callout">
+        <b>Negative marking / Custom marking</b><br/>
+        <span class="muted small">Score = (correct × +marks) + (wrong × −marks)</span>
+        <div class="row" style="margin-top:10px">
+          <div style="flex:1">
+            <div class="muted small">Correct (+)</div>
+            <input type="number" id="mCorrect" step="0.25" />
+          </div>
+          <div style="flex:1">
+            <div class="muted small">Wrong (−)</div>
+            <input type="number" id="mWrong" step="0.25" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:12px">
+        <button class="btn warn" id="clearSaved">🧹 Clear Saved Progress</button>
+        <button class="btn primary" id="saveNow">💾 Save Now</button>
+      </div>
+    </div>
+  </dialog>
+</div>
+
+<script>
+(() => {
+  const QUIZ_TITLE = "Class 6 Science — Chapter 1: বৈজ্ঞানিক প্রক্রিয়া ও পরিমাপ (50 প্রশ্ন) — Advanced Tagged";
+  const STORAGE_KEY = "ultraProMaxQuiz.v50.adv.tagged";
+
+  // ======= 50 প্রশ্ন ব্যাংক (Proper Difficulty + Tags) =======
+  // Difficulty guide:
+  // Easy  = সংজ্ঞা/সাধারণ জ্ঞান/সহজ fact
+  // Medium= concept+reason/conversion/প্রয়োগ
+  // Hard  = multi-step/কমন ভুল/সূক্ষ্ম ধারণা-ভিত্তিক
+  const bank = [
+    // Measurement Basics (Easy)
+    { id: 1,  stem: "পরিমাপ কী?", options: ["অনুমান করা","তুলনা করা","পরিমাণ নির্ণয় করা","দেখে বলা"], answerIndex: 2, explain: "পরিমাপ হলো কোনো কিছুর পরিমাণ নির্ণয়ের প্রক্রিয়া।", difficulty:"Easy", tags:["Measurement","Basics"] },
+    { id: 2,  stem: "পরিমাপের জন্য কী প্রয়োজন?", options: ["চোখ","অনুমান","একক","হাত"], answerIndex: 2, explain: "পরিমাপের জন্য একটি নির্দিষ্ট একক প্রয়োজন।", difficulty:"Easy", tags:["Units","Basics"] },
+    { id: 3,  stem: "মানক একক ব্যবহারের প্রধান কারণ কী?", options: ["সহজ","সবার জন্য একই","দ্রুত","সস্তা"], answerIndex: 1, explain: "মানক একক সবার জন্য একই হওয়ায় বিভ্রান্তি কমে।", difficulty:"Easy", tags:["Units","Standard"] },
+
+    // SI System (Easy/Medium)
+    { id: 4,  stem: "এসআই (SI) পদ্ধতির পূর্ণরূপ কী?", options: ["System International","Standard International","International System of Units","Simple International Units"], answerIndex: 2, explain: "SI = International System of Units।", difficulty:"Easy", tags:["SI","Units"] },
+    { id: 5,  stem: "এসআই পদ্ধতিতে মৌলিক একক কয়টি?", options: ["৫টি","৬টি","৭টি","৮টি"], answerIndex: 2, explain: "SI পদ্ধতিতে ৭টি মৌলিক একক আছে।", difficulty:"Easy", tags:["SI","Fundamental Units"] },
+
+    // Fundamental Units (Easy)
+    { id: 6,  stem: "দৈর্ঘ্যের মৌলিক একক কোনটি?", options: ["সেমি","মিটার","কিলোমিটার","মিলিমিটার"], answerIndex: 1, explain: "দৈর্ঘ্যের SI মৌলিক একক মিটার (m)।", difficulty:"Easy", tags:["SI","Length"] },
+    { id: 7,  stem: "ভরের মৌলিক একক কোনটি?", options: ["গ্রাম","মিলিগ্রাম","কিলোগ্রাম","টন"], answerIndex: 2, explain: "ভরের SI মৌলিক একক কিলোগ্রাম (kg)।", difficulty:"Easy", tags:["SI","Mass"] },
+    { id: 8,  stem: "সময়ের মৌলিক একক কোনটি?", options: ["ঘণ্টা","মিনিট","দিন","সেকেন্ড"], answerIndex: 3, explain: "সময়ের SI মৌলিক একক সেকেন্ড (s)।", difficulty:"Easy", tags:["SI","Time"] },
+    { id: 9,  stem: "তাপমাত্রার মৌলিক একক কোনটি?", options: ["ডিগ্রি সেলসিয়াস (°C)","ফারেনহাইট (°F)","কেলভিন (K)","জুল (J)"], answerIndex: 2, explain: "SI একক কেলভিন (K)।", difficulty:"Easy", tags:["SI","Temperature"] },
+    { id:10,  stem: "বিদ্যুৎ প্রবাহের মৌলিক একক কোনটি?", options: ["ভোল্ট (V)","অ্যাম্পিয়ার (A)","ওহম (Ω)","ওয়াট (W)"], answerIndex: 1, explain: "SI একক অ্যাম্পিয়ার (A)।", difficulty:"Easy", tags:["SI","Electric Current"] },
+
+    // Derived Units (Easy)
+    { id:11,  stem: "কোনটি উৎপন্ন একক?", options: ["মিটার (m)","কিলোগ্রাম (kg)","নিউটন (N)","সেকেন্ড (s)"], answerIndex: 2, explain: "নিউটন উৎপন্ন একক।", difficulty:"Easy", tags:["Derived Units"] },
+    { id:12,  stem: "বল (Force) এর একক কী?", options: ["জুল (J)","নিউটন (N)","ওয়াট (W)","পাস্কাল (Pa)"], answerIndex: 1, explain: "বলের একক নিউটন (N)।", difficulty:"Easy", tags:["Derived Units","Force"] },
+    { id:13,  stem: "চাপের একক কোনটি?", options: ["নিউটন (N)","পাস্কাল (Pa)","জুল (J)","ওয়াট (W)"], answerIndex: 1, explain: "চাপের একক পাস্কাল (Pa)।", difficulty:"Easy", tags:["Derived Units","Pressure"] },
+    { id:14,  stem: "শক্তির একক কোনটি?", options: ["ওয়াট (W)","জুল (J)","নিউটন (N)","ভোল্ট (V)"], answerIndex: 1, explain: "শক্তির একক জুল (J)।", difficulty:"Easy", tags:["Derived Units","Energy"] },
+    { id:15,  stem: "ক্ষমতার একক কোনটি?", options: ["জুল (J)","নিউটন (N)","ওয়াট (W)","ভোল্ট (V)"], answerIndex: 2, explain: "ক্ষমতার একক ওয়াট (W)।", difficulty:"Easy", tags:["Derived Units","Power"] },
+
+    // Area/Volume/Dimension (Easy/Medium)
+    { id:16,  stem: "ক্ষেত্রফল কীভাবে নির্ণয় করা হয়?", options: ["দৈর্ঘ্য × প্রস্থ","দৈর্ঘ্য + প্রস্থ","প্রস্থ × উচ্চতা","সবগুলো"], answerIndex: 0, explain: "ক্ষেত্রফল = দৈর্ঘ্য × প্রস্থ।", difficulty:"Easy", tags:["Area","Formula"] },
+    { id:17,  stem: "আয়তন কীভাবে নির্ণয় করা হয়?", options: ["দৈর্ঘ্য × প্রস্থ","দৈর্ঘ্য × প্রস্থ × উচ্চতা","প্রস্থ × উচ্চতা","দৈর্ঘ্য × উচ্চতা"], answerIndex: 1, explain: "আয়তন = দৈর্ঘ্য × প্রস্থ × উচ্চতা।", difficulty:"Easy", tags:["Volume","Formula"] },
+    { id:18,  stem: "ক্ষেত্রফল কয় মাত্রিক?", options: ["১ মাত্রিক","২ মাত্রিক","৩ মাত্রিক","৪ মাত্রিক"], answerIndex: 1, explain: "ক্ষেত্রফল দুই মাত্রিক।", difficulty:"Easy", tags:["Dimension","Area"] },
+    { id:19,  stem: "আয়তন কয় মাত্রিক?", options: ["১","২","৩","৪"], answerIndex: 2, explain: "আয়তন তিন মাত্রিক।", difficulty:"Easy", tags:["Dimension","Volume"] },
+    { id:20,  stem: "ক্ষেত্রফলের একক কী?", options: ["মিটার","বর্গমিটার","ঘনমিটার","কিলোগ্রাম"], answerIndex: 1, explain: "ক্ষেত্রফলের একক বর্গমিটার।", difficulty:"Easy", tags:["Area","Units"] },
+    { id:21,  stem: "আয়তনের একক কী?", options: ["বর্গমিটার","ঘনমিটার","লিটার","সেকেন্ড"], answerIndex: 1, explain: "আয়তনের একক ঘনমিটার।", difficulty:"Easy", tags:["Volume","Units"] },
+
+    // Conversions & Applications (Medium)
+    { id:22,  stem: "১ লিটার সমান কত ঘন সেমি?", options: ["১০০","৫০০","১০০০","১০"], answerIndex: 2, explain: "১ L = ১০০০ cm³।", difficulty:"Medium", tags:["Conversion","Volume"] },
+    { id:23,  stem: "একটি বর্গক্ষেত্রের এক বাহু ৪ মিটার হলে ক্ষেত্রফল কত?", options: ["৮","১২","১৬","২০"], answerIndex: 2, explain: "ক্ষেত্রফল = ৪ × ৪ = ১৬।", difficulty:"Medium", tags:["Area","Math"] },
+    { id:24,  stem: "একটি আয়তক্ষেত্রের দৈর্ঘ্য ৫ মি ও প্রস্থ ৩ মি হলে ক্ষেত্রফল কত?", options: ["৮","১৫","২০","৩০"], answerIndex: 1, explain: "ক্ষেত্রফল = ৫ × ৩ = ১৫।", difficulty:"Medium", tags:["Area","Math"] },
+    { id:25,  stem: "একটি ঘনকের এক বাহু ২ সেমি হলে আয়তন কত?", options: ["৪","৬","৮","১০"], answerIndex: 2, explain: "আয়তন = ২ × ২ × ২ = ৮।", difficulty:"Medium", tags:["Volume","Math"] },
+
+    // Standard vs Non-standard (Easy/Medium)
+    { id:26,  stem: "কোনটি মানক একক?", options: ["হাত","পা","মিটার","কদম"], answerIndex: 2, explain: "মিটার মানক একক।", difficulty:"Easy", tags:["Units","Standard"] },
+    { id:27,  stem: "প্রাচীনকালে পরিমাপে কী ব্যবহার করা হতো?", options: ["মিটার","কিলোগ্রাম","হাত ও পা","ঘড়ি"], answerIndex: 2, explain: "হাত-পা অমানক একক।", difficulty:"Easy", tags:["Units","Non-standard"] },
+    { id:28,  stem: "মানক একক ব্যবহারের সুবিধা কী?", options: ["ভুল কম হয়","সবার জন্য এক","সহজ তুলনা","সবগুলো"], answerIndex: 3, explain: "সবগুলোই সুবিধা।", difficulty:"Medium", tags:["Units","Reasoning"] },
+
+    // Measurement Errors & Accuracy (Medium/Hard)
+    { id:29,  stem: "পরিমাপের ভুল কেন হয়?", options: ["অসাবধানতা","ভুল যন্ত্র","ভুল একক","সবগুলো"], answerIndex: 3, explain: "যন্ত্র/মানুষ/একক—সব দিক থেকেই ভুল হতে পারে।", difficulty:"Medium", tags:["Measurement Error","Accuracy"] },
+    { id:30,  stem: "নির্ভুল পরিমাপের জন্য কী প্রয়োজন?", options: ["সঠিক যন্ত্র","সঠিক একক","সাবধানতা","সবগুলো"], answerIndex: 3, explain: "সবগুলো দরকার।", difficulty:"Medium", tags:["Accuracy","Good Practice"] },
+
+    // Density (Medium/Hard)
+    { id:31,  stem: "ঘনত্ব কী দিয়ে নির্ণয় করা হয়?", options: ["ভর/আয়তন","ভর × আয়তন","আয়তন/ভর","ভর + আয়তন"], answerIndex: 0, explain: "ঘনত্ব = ভর ÷ আয়তন।", difficulty:"Medium", tags:["Density","Formula"] },
+    { id:32,  stem: "ঘনত্বের একক কী?", options: ["কেজি","কেজি/মিটার","কেজি/ঘনমিটার","মিটার"], answerIndex: 2, explain: "SI একক kg/m³।", difficulty:"Hard", tags:["Density","Units","SI"] },
+
+    // Instruments (Easy/Medium)
+    { id:33,  stem: "তরলের আয়তন সাধারণত কী দিয়ে মাপা হয়?", options: ["মিটার স্কেল","বিম ব্যালেন্স","মেজারিং সিলিন্ডার","থার্মোমিটার"], answerIndex: 2, explain: "মেজারিং সিলিন্ডার ব্যবহৃত হয়।", difficulty:"Easy", tags:["Instruments","Volume"] },
+    { id:34,  stem: "ভর মাপার যন্ত্র কোনটি?", options: ["থার্মোমিটার","স্প্রিং ব্যালেন্স","বিম ব্যালেন্স","মিটার স্কেল"], answerIndex: 2, explain: "ভর মাপতে বিম ব্যালেন্স।", difficulty:"Easy", tags:["Instruments","Mass"] },
+    { id:35,  stem: "তাপমাত্রা মাপার যন্ত্র কী?", options: ["ব্যারোমিটার","থার্মোমিটার","অ্যামিটার","ভোল্টমিটার"], answerIndex: 1, explain: "থার্মোমিটার তাপমাত্রা মাপে।", difficulty:"Easy", tags:["Instruments","Temperature"] },
+    { id:36,  stem: "চাপ মাপার যন্ত্র কোনটি?", options: ["থার্মোমিটার","ব্যারোমিটার","স্পিডোমিটার","হাইড্রোমিটার"], answerIndex: 1, explain: "ব্যারোমিটার চাপ মাপে।", difficulty:"Easy", tags:["Instruments","Pressure"] },
+    { id:37,  stem: "বিদ্যুৎ প্রবাহ মাপার যন্ত্র কী?", options: ["ভোল্টমিটার","অ্যামিটার","ওহমিটার","ব্যারোমিটার"], answerIndex: 1, explain: "অ্যামিটার কারেন্ট মাপে।", difficulty:"Easy", tags:["Instruments","Electric Current"] },
+    { id:38,  stem: "ভোল্টমিটার কী মাপে?", options: ["প্রবাহ","চাপ","বৈদ্যুতিক বিভব পার্থক্য","শক্তি"], answerIndex: 2, explain: "ভোল্টমিটার Voltage (বিভব পার্থক্য) মাপে।", difficulty:"Medium", tags:["Instruments","Electric"] },
+    { id:39,  stem: "স্পিডোমিটার কী মাপে?", options: ["দূরত্ব","গতি","সময়","চাপ"], answerIndex: 1, explain: "গতি মাপে।", difficulty:"Easy", tags:["Instruments","Speed"] },
+
+    // Metrology (Medium)
+    { id:40,  stem: "পরিমাপ বিজ্ঞানকে কী বলে?", options: ["বায়োলজি","মেট্রোলজি","ফিজিক্স","কেমিস্ট্রি"], answerIndex: 1, explain: "পরিমাপ বিজ্ঞানের নাম মেট্রোলজি।", difficulty:"Medium", tags:["Metrology","Basics"] },
+
+    // Standard/Non-standard & Concept checks (Easy/Medium/Hard)
+    { id:41,  stem: "কোনটি অমানক একক?", options: ["মিটার","কিলোগ্রাম","হাত","সেকেন্ড"], answerIndex: 2, explain: "হাত অমানক একক।", difficulty:"Easy", tags:["Units","Non-standard"] },
+    { id:42,  stem: "একক ছাড়া পরিমাপ সম্ভব?", options: ["হ্যাঁ","না","কখনো কখনো","জানি না"], answerIndex: 1, explain: "একক ছাড়া পরিমাপ সম্ভব নয়।", difficulty:"Medium", tags:["Units","Concept"] },
+
+    // Reasoning: square/cube units (Hard)
+    { id:43,  stem: "ক্ষেত্রফল মাপার একক বর্গ কেন?", options: ["দৈর্ঘ্য দুইবার ব্যবহৃত","সহজ","নিয়ম","সবগুলো"], answerIndex: 0, explain: "ক্ষেত্রফল = দৈর্ঘ্য×প্রস্থ; দুইটি দৈর্ঘ্যের গুণ ⇒ বর্গ একক।", difficulty:"Hard", tags:["Area","Reasoning","Units"] },
+    { id:44,  stem: "আয়তনের একক ঘন কেন?", options: ["তিন মাত্রা","সহজ","নিয়ম","সবগুলো"], answerIndex: 0, explain: "আয়তন = দৈর্ঘ্য×প্রস্থ×উচ্চতা; তিনটি দৈর্ঘ্যের গুণ ⇒ ঘন একক।", difficulty:"Hard", tags:["Volume","Reasoning","Units"] },
+
+    // Error reduction (Medium)
+    { id:45,  stem: "পরিমাপের ভুল কমানোর উপায় কোনটি?", options: ["সঠিক যন্ত্র","সঠিক একক","সাবধানতা","সবগুলো"], answerIndex: 3, explain: "সবগুলোই ভুল কমায়।", difficulty:"Medium", tags:["Measurement Error","Accuracy"] },
+
+    // Parallax (Hard)
+    { id:46,  stem: "পরিমাপে চোখের অবস্থান ভুল হলে কী হয়?", options: ["ভুল কমে","সঠিক হয়","প্যারাল্যাক্স ত্রুটি হয়","কিছু হয় না"], answerIndex: 2, explain: "চোখের অবস্থান ঠিক না হলে Parallax error হয়।", difficulty:"Hard", tags:["Parallax","Measurement Error"] },
+    { id:47,  stem: "প্যারাল্যাক্স ত্রুটি কী?", options: ["যন্ত্রের ত্রুটি","মানুষের ত্রুটি","চোখের অবস্থানজনিত ত্রুটি","এককের ত্রুটি"], answerIndex: 2, explain: "স্কেলের দাগ দেখার সময় চোখের অবস্থানজনিত ভুল।", difficulty:"Hard", tags:["Parallax","Measurement Error"] },
+    { id:48,  stem: "নির্ভুল পরিমাপের জন্য চোখ কোথায় রাখা উচিত?", options: ["যন্ত্রের উপরে","স্কেলের পাশে","স্কেলের লম্বভাবে","যেকোনো জায়গায়"], answerIndex: 2, explain: "চোখ স্কেলের উপর লম্বভাবে রাখলে Parallax কমে।", difficulty:"Hard", tags:["Parallax","Accuracy","Good Practice"] },
+
+    // Importance (Medium)
+    { id:49,  stem: "সঠিক পরিমাপ প্রয়োজন কেন?", options: ["সঠিক ফল/মান নির্ণয় ও ভুল কমাতে","শুধু হিসাব দ্রুত করতে","শুধু পরীক্ষায় নম্বর পেতে","শুধু যন্ত্র ব্যবহার করতে"], answerIndex: 0, explain: "সঠিক ফল/সিদ্ধান্তের জন্য সঠিক পরিমাপ দরকার।", difficulty:"Medium", tags:["Importance","Accuracy"] },
+    { id:50,  stem: "পরিমাপ অধ্যায়ের মূল উদ্দেশ্য কী?", options: ["সংখ্যা শেখা","একক জানা","সঠিক পরিমাণ নির্ণয়","সূত্র মুখস্থ"], answerIndex: 2, explain: "মূল উদ্দেশ্য: সঠিকভাবে পরিমাণ নির্ণয় শেখা।", difficulty:"Easy", tags:["Basics","Measurement"] }
+  ];
+
+  // ======= State =======
+  const defaultState = {
+    theme:"dark", shuffle:true, timerOn:true, mode:"exam",
+    perAttempt:50, durationSec:30*60, marksCorrect:1, marksWrong:0.25,
+    elapsedSec:0, startedAt:null, attempt:[], current:0, answers:{}, checked:{}, flags:{},
+    stats:{correct:0, wrong:0, blank:0, bestStreak:0, streak:0},
+    searchText:"",
+    filters:{ difficulty:"all", tag:"all", onlyFlagged:false }
+  };
+
+  let state = load() || structuredClone(defaultState);
+  let tick=null, saveT=null;
+
+  const root=document.documentElement;
+  const gid=(id)=>document.getElementById(id);
+
+  const titleH=gid("titleH"), poolN=gid("poolN"), poolCount=gid("poolCount");
+  const qIndex=gid("qIndex"), qText=gid("qText"), optionsBox=gid("options");
+  const explainBox=gid("explainBox"), explainText=gid("explainText");
+  const pbar=gid("pbar"), timer=gid("timer"), acc=gid("acc"), scoreLive=gid("scoreLive");
+  const doneCount=gid("doneCount"), flagCount=gid("flagCount");
+  const modeTag=gid("modeTag"), shuffleTag=gid("shuffleTag"), timerTag=gid("timerTag"), markTag=gid("markTag");
+  const hintBox=gid("hintBox"), quizPane=gid("quizPane"), resultPane=gid("resultPane");
+  const scoreText=gid("scoreText"), scoreMeta=gid("scoreMeta"), reviewList=gid("reviewList"), exportBox=gid("exportBox");
+  const qMetaRow=gid("qMetaRow"), qImgBox=gid("qImgBox"), qImg=gid("qImg"), qImgCap=gid("qImgCap");
+
+  const prevBtn=gid("prevBtn"), nextBtn=gid("nextBtn"), checkBtn=gid("checkBtn");
+  const hintBtn=gid("hintBtn"), toggleExplain=gid("toggleExplain"), flagBtn=gid("flagBtn"), finishBtn=gid("finishBtn");
+
+  const toggleTheme=gid("toggleTheme"), resetAll=gid("resetAll"), fullBtn=gid("fullBtn");
+  const openSettings=gid("openSettings"), settingsDlg=gid("settingsDlg"), closeSettings=gid("closeSettings");
+  const toggleShuffle=gid("toggleShuffle"), toggleTimer=gid("toggleTimer"), toggleMode=gid("toggleMode");
+  const clearSaved=gid("clearSaved"), saveNow=gid("saveNow");
+
+  const restartBtn=gid("restartBtn"), reviewBtn=gid("reviewBtn"), printBtn=gid("printBtn");
+  const jumpRow=gid("jumpRow");
+  const qPerAttempt=gid("qPerAttempt"), minutes=gid("minutes"), mCorrect=gid("mCorrect"), mWrong=gid("mWrong");
+  const searchBox=gid("searchBox");
+
+  const difficultySelect=gid("difficultySelect");
+  const tagSelect=gid("tagSelect");
+  const onlyFlaggedBtn=gid("onlyFlaggedBtn");
+  const applyFilterBtn=gid("applyFilterBtn");
+
+  init();
+
+  function init(){
+    titleH.textContent = QUIZ_TITLE;
+    poolN.textContent = bank.length;
+    poolCount.textContent = bank.length;
+
+    applyTheme();
+    hydrateSettings();
+    hydrateFilters();
+    buildTagOptions();
+
+    ensureAttempt(true);
+    renderJump();
+    render();
+    startTimer(false);
+
+    searchBox.value = state.searchText || "";
+    searchBox.addEventListener("input", () => {
+      state.searchText = (searchBox.value || "");
+      saveThrottled();
+    });
+
+    applyFilterBtn.addEventListener("click", () => {
+      state.filters.difficulty = difficultySelect.value;
+      state.filters.tag = tagSelect.value;
+      ensureAttempt(true);
+      renderJump(); render();
+      toast("✅ Filter applied");
+      save();
+    });
+
+    onlyFlaggedBtn.addEventListener("click", () => {
+      state.filters.onlyFlagged = !state.filters.onlyFlagged;
+      onlyFlaggedBtn.textContent = `🚩 Only Flagged: ${state.filters.onlyFlagged ? "On" : "Off"}`;
+      ensureAttempt(true);
+      renderJump(); render();
+      save();
+    });
+
+    // main buttons
+    prevBtn.onclick=()=>nav(-1);
+    nextBtn.onclick=()=>nav(1);
+    checkBtn.onclick=checkAnswer;
+    hintBtn.onclick=()=>hintBox.style.display = hintBox.style.display==="none"?"block":"none";
+    toggleExplain.onclick=()=>explainBox.style.display = explainBox.style.display==="none"?"block":"none";
+    flagBtn.onclick=()=>{ const q=currentQ(); state.flags[q.id]=!state.flags[q.id]; save(); renderSide(); toast(state.flags[q.id]?"🚩 Flag added":"✅ Flag removed"); };
+    finishBtn.onclick=()=>showResults(true);
+
+    // header
+    toggleTheme.onclick=()=>{ state.theme = state.theme==="dark"?"light":"dark"; applyTheme(); save(); };
+    fullBtn.onclick=()=>toggleFullscreen();
+    resetAll.onclick=resetEverything;
+
+    // settings
+    openSettings.onclick=()=>settingsDlg.showModal();
+    closeSettings.onclick=()=>settingsDlg.close();
+
+    toggleShuffle.onclick=()=>{ state.shuffle=!state.shuffle; ensureAttempt(true); save(); renderJump(); render(); toast(state.shuffle?"🔀 Shuffle ON":"🔀 Shuffle OFF"); };
+    toggleTimer.onclick=()=>{ state.timerOn=!state.timerOn; if(state.timerOn) startTimer(false); else { stopTimer(); timer.textContent="--:--"; } save(); renderTags(); toast(state.timerOn?"⏱️ Timer ON":"⏱️ Timer OFF"); };
+    toggleMode.onclick=()=>{ state.mode = state.mode==="exam"?"practice":"exam"; save(); renderTags(); toast(state.mode==="exam"?"MODE: Exam":"MODE: Practice"); };
+    clearSaved.onclick=()=>{ localStorage.removeItem(STORAGE_KEY); toast("🧹 Saved cleared"); };
+    saveNow.onclick=()=>{ readSettings(); save(); settingsDlg.close(); renderTags(); ensureAttempt(true); renderJump(); render(); toast("💾 Saved"); };
+
+    // result
+    restartBtn.onclick=()=>{ readSettings(); newAttempt(); };
+    reviewBtn.onclick=()=>reviewList.style.display = reviewList.style.display==="none"?"grid":"none";
+    printBtn.onclick=()=>window.print();
+
+    // keys
+    window.addEventListener("keydown",(e)=>{
+      if(settingsDlg.open) return;
+      const k=e.key.toLowerCase();
+      if(k==="arrowleft") nav(-1);
+      if(k==="arrowright") nav(1);
+      if(k==="enter") checkAnswer();
+      if(["a","b","c","d"].includes(k)) selectOption(["a","b","c","d"].indexOf(k));
+    });
+  }
+
+  function resetEverything(){
+    if(!confirm("Reset everything?")) return;
+    localStorage.removeItem(STORAGE_KEY);
+    state = structuredClone(defaultState);
+    applyTheme();
+    hydrateSettings();
+    hydrateFilters();
+    buildTagOptions();
+    ensureAttempt(true);
+    stopTimer();
+    save();
+    renderJump(); render();
+    startTimer(true);
+    toast("♻️ Reset done");
+  }
+
+  function normalizeQ(q){
+    return {
+      ...q,
+      difficulty: q.difficulty || "Easy",
+      tags: Array.isArray(q.tags) && q.tags.length ? q.tags : ["General"]
+    };
+  }
+
+  function buildTagOptions(){
+    const tagsSet = new Set();
+    bank.map(normalizeQ).forEach(q => q.tags.forEach(t => tagsSet.add(String(t))));
+    const tags = Array.from(tagsSet).sort((a,b)=>a.localeCompare(b));
+    tagSelect.innerHTML = `<option value="all">All</option>` + tags.map(t=>`<option value="${escapeHTMLAttr(t)}">${escapeHTML(t)}</option>`).join("");
+    if(state.filters.tag && state.filters.tag !== "all"){
+      const opt = Array.from(tagSelect.options).find(o=>o.value===state.filters.tag);
+      if(opt) tagSelect.value = state.filters.tag;
+    }
+  }
+
+  function hydrateFilters(){
+    difficultySelect.value = state.filters?.difficulty || "all";
+    onlyFlaggedBtn.textContent = `🚩 Only Flagged: ${(state.filters?.onlyFlagged) ? "On" : "Off"}`;
+  }
+
+  function filteredPoolIds(){
+    const f = state.filters || {difficulty:"all", tag:"all", onlyFlagged:false};
+    const s = (state.searchText || "").trim().toLowerCase();
+
+    return bank.map(normalizeQ)
+      .filter(q => {
+        if(s && !(q.stem||"").toLowerCase().includes(s)) return false;
+        if(f.difficulty !== "all" && q.difficulty !== f.difficulty) return false;
+        if(f.tag !== "all" && !q.tags.includes(f.tag)) return false;
+        if(f.onlyFlagged && !state.flags[q.id]) return false;
+        return true;
+      })
+      .map(q => q.id);
+  }
+
+  function ensureAttempt(force){
+    const pool = filteredPoolIds();
+    poolCount.textContent = pool.length;
+
+    const need = clamp(Number(state.perAttempt)||50, 5, Math.max(5, pool.length || 5));
+
+    if(force || !Array.isArray(state.attempt) || state.attempt.length !== need || state._poolHash !== hashPool(pool)){
+      state.perAttempt = need;
+      state._poolHash = hashPool(pool);
+      buildAttempt(pool, need);
+      state.current=0;
+      state.answers={}; state.checked={};
+      state.stats={correct:0, wrong:0, blank:0, bestStreak:0, streak:0};
+      state.elapsedSec=0; state.startedAt=Date.now();
+      stopTimer();
+    }
+  }
+
+  function buildAttempt(poolIds, need){
+    let pool = poolIds.slice();
+    if(state.shuffle) pool = shuffle(pool);
+    if(pool.length === 0){
+      pool = bank.map(q=>q.id);
+      if(state.shuffle) pool = shuffle(pool);
+    }
+    state.attempt = pool.slice(0, need);
+  }
+
+  function newAttempt(){
+    ensureAttempt(true);
+    save();
+    resultPane.style.display="none";
+    quizPane.style.display="block";
+    reviewList.style.display="none";
+    renderJump(); render();
+    startTimer(true);
+    toast("🔁 New attempt created");
+  }
+
+  function render(){
+    renderTags(); renderSide();
+
+    if(state.attempt.length===0){
+      qText.textContent="কোনো প্রশ্ন পাওয়া যায়নি (Filter/Search চেক করো)।";
+      optionsBox.innerHTML="";
+      return;
+    }
+
+    const q = normalizeQ(currentQ());
+
+    qIndex.textContent = `${state.current+1}/${state.attempt.length}`;
+
+    qMetaRow.innerHTML = `
+      <span class="chip">Difficulty: <strong>${escapeHTML(q.difficulty)}</strong></span>
+      <span class="chip">Tags: <strong>${escapeHTML(q.tags.join(", "))}</strong></span>
+      <span class="chip">ID: <strong>${q.id}</strong></span>
+    `;
+
+    if(q.image){
+      qImgBox.style.display = "block";
+      qImg.src = q.image;
+      qImgCap.textContent = q.imageCaption ? q.imageCaption : "";
+    } else {
+      qImgBox.style.display = "none";
+      qImg.removeAttribute("src");
+      qImgCap.textContent = "";
+    }
+
+    qText.textContent = q.stem;
+
+    explainText.innerHTML = escapeHTML(q.explain || "");
+    explainBox.style.display="none";
+    hintBox.style.display="none";
+
+    optionsBox.innerHTML="";
+    const letters=["A","B","C","D"];
+    q.options.forEach((opt,i)=>{
+      const lab=document.createElement("label");
+      lab.className="opt";
+      lab.tabIndex=0;
+      lab.onclick=()=>selectOption(i);
+      lab.onkeydown=(e)=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); selectOption(i);} };
+
+      const L=document.createElement("div"); L.className="letter"; L.textContent=letters[i];
+      const input=document.createElement("input"); input.type="radio"; input.name="opt"; input.checked = state.answers[q.id]===i;
+      input.onchange=()=>selectOption(i);
+      const txt=document.createElement("div"); txt.style.flex="1"; txt.innerHTML = `<div style="font-weight:650">${escapeHTML(opt)}</div>`;
+      lab.append(L,input,txt);
+      optionsBox.appendChild(lab);
+    });
+
+    prevBtn.disabled = state.current===0;
+    nextBtn.disabled = state.current===state.attempt.length-1;
+
+    const done=Object.keys(state.checked).length;
+    pbar.style.width = `${Math.round((done/state.attempt.length)*100)}%`;
+  }
+
+  function renderTags(){
+    modeTag.textContent = `MODE: ${state.mode==="exam"?"Exam":"Practice"}`;
+    shuffleTag.textContent = `SHUFFLE: ${state.shuffle?"On":"Off"}`;
+    timerTag.textContent = `TIMER: ${state.timerOn?"On":"Off"}`;
+    markTag.textContent = `MARK: +${state.marksCorrect} / −${state.marksWrong}`;
+  }
+
+  function renderSide(){
+    doneCount.textContent = Object.keys(state.checked).length;
+    flagCount.textContent = Object.values(state.flags||{}).filter(Boolean).length;
+    const attempted = state.stats.correct + state.stats.wrong;
+    const pct = attempted ? Math.round((state.stats.correct/attempted)*100) : 0;
+    acc.textContent = `${pct}%`;
+    scoreLive.textContent = calcScore().toFixed(2);
+  }
+
+  function renderJump(){
+    jumpRow.innerHTML="";
+    for(let i=0;i<state.attempt.length;i++){
+      const b=document.createElement("button");
+      b.className="btn"; b.style.padding="8px 10px";
+      b.textContent=String(i+1);
+      b.onclick=()=>{ state.current=i; saveThrottled(); render(); };
+      jumpRow.appendChild(b);
+    }
+  }
+
+  function currentQ(){ return bank.find(q=>q.id===state.attempt[state.current]); }
+
+  function selectOption(i){
+    const q=normalizeQ(currentQ());
+    state.answers[q.id]=i;
+    saveThrottled();
+    render();
+  }
+
+  function checkAnswer(){
+    const q=normalizeQ(currentQ());
+    if(state.answers[q.id]===undefined){ toast("⚠️ Option select করো"); return; }
+    if(state.checked[q.id]){ toast("✅ Already checked"); return; }
+    state.checked[q.id]=true;
+
+    const ok = state.answers[q.id]===q.answerIndex;
+    if(ok){
+      state.stats.correct++; state.stats.streak++;
+      state.stats.bestStreak=Math.max(state.stats.bestStreak,state.stats.streak);
+      toast("✅ Correct!");
+    } else {
+      state.stats.wrong++; state.stats.streak=0;
+      toast(`❌ Wrong. Correct: ${["A","B","C","D"][q.answerIndex]}`);
+    }
+
+    save();
+    renderSide();
+    if(state.mode==="practice") explainBox.style.display="block";
+    if(Object.keys(state.checked).length === state.attempt.length) showResults(true);
+  }
+
+  function nav(d){
+    state.current = clamp(state.current+d,0,state.attempt.length-1);
+    saveThrottled();
+    render();
+  }
+
+  function calcScore(){
+    return (state.stats.correct*Number(state.marksCorrect)) - (state.stats.wrong*Number(state.marksWrong));
+  }
+
+  function showResults(force){
+    stopTimer();
+    const total=state.attempt.length;
+    state.stats.blank = total - Object.keys(state.checked).length;
+
+    quizPane.style.display="none";
+    resultPane.style.display="block";
+
+    const score=calcScore();
+    scoreText.textContent = score.toFixed(2);
+
+    const attempted=state.stats.correct+state.stats.wrong;
+    const accPct = attempted ? Math.round((state.stats.correct/attempted)*100) : 0;
+
+    scoreMeta.innerHTML = `Correct: <b>${state.stats.correct}</b> • Wrong: <b>${state.stats.wrong}</b> • Blank: <b>${state.stats.blank}</b><br/>
+      Accuracy: <b>${accPct}%</b> • Best streak: <b>${state.stats.bestStreak}</b> • Time: <b>${fmtTime(state.elapsedSec)}</b><br/>
+      Marking: <b>+${state.marksCorrect}</b> / <b>−${state.marksWrong}</b> • Questions: <b>${total}</b>`;
+
+    reviewList.innerHTML="";
+    state.attempt.forEach((id,idx)=>{
+      const q=normalizeQ(bank.find(x=>x.id===id));
+      const chosen=state.answers[id];
+      const ok = chosen===q.answerIndex;
+      const div=document.createElement("div");
+      div.className="reviewItem";
+      div.innerHTML = `
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start">
+          <div>
+            <div class="muted small">Q${idx+1} • ${escapeHTML(q.difficulty)} • ${escapeHTML((q.tags||[]).join(", "))}</div>
+            <div style="font-weight:700;margin-top:2px">${escapeHTML(q.stem)}</div>
+          </div>
+          <div class="badge ${ok?"ok":"no"}">${ok?"Correct":"Wrong"}</div>
+        </div>
+        <div class="muted" style="margin-top:8px">
+          Your: <b>${chosen!==undefined ? escapeHTML(q.options[chosen]) : "—"}</b><br/>
+          Correct: <b>${escapeHTML(q.options[q.answerIndex])}</b>
+        </div>
+        <div class="muted small" style="margin-top:8px">${escapeHTML(q.explain || "")}</div>`;
+      reviewList.appendChild(div);
+    });
+
+    exportBox.textContent = JSON.stringify({
+      finishedAt:new Date().toISOString(),
+      score:score,
+      correct:state.stats.correct, wrong:state.stats.wrong, blank:state.stats.blank,
+      perAttempt:total,
+      elapsedSec:state.elapsedSec,
+      marks:{correct:state.marksCorrect, wrong:state.marksWrong},
+      answers:state.answers,
+      attempt:state.attempt,
+      mode:state.mode, shuffle:state.shuffle, timerOn:state.timerOn, theme:state.theme,
+      search: state.searchText,
+      filters: state.filters
+    }, null, 2);
+
+    save();
+    if(force) toast("🏁 Finished");
+  }
+
+  function startTimer(force){
+    if(!state.timerOn) return;
+    if(force || !state.startedAt) state.startedAt=Date.now();
+    if(tick) return;
+    tick=setInterval(()=>{
+      state.elapsedSec++;
+      const rem=Math.max(0, state.durationSec - state.elapsedSec);
+      timer.textContent = fmtTime(rem);
+      saveThrottled();
+      if(rem===0){ stopTimer(); toast("⏰ Time up!"); showResults(true); }
+    },1000);
+    const rem=Math.max(0, state.durationSec - state.elapsedSec);
+    timer.textContent = fmtTime(rem);
+  }
+  function stopTimer(){ if(tick){ clearInterval(tick); tick=null; } }
+
+  function hydrateSettings(){
+    qPerAttempt.value = state.perAttempt;
+    minutes.value = Math.round(state.durationSec/60);
+    mCorrect.value = state.marksCorrect;
+    mWrong.value = state.marksWrong;
+  }
+
+  function readSettings(){
+    const qn=Number(qPerAttempt.value||50);
+    const min=Number(minutes.value||30);
+    state.perAttempt = clamp(qn,5,50);
+    state.durationSec = clamp(min,1,120)*60;
+    state.marksCorrect = Number(mCorrect.value||1);
+    state.marksWrong = Number(mWrong.value||0.25);
+    ensureAttempt(true);
+    renderTags();
+  }
+
+  function save(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+  function load(){ try{ const raw=localStorage.getItem(STORAGE_KEY); return raw?JSON.parse(raw):null; }catch(e){ return null; } }
+  function saveThrottled(){ if(saveT) return; saveT=setTimeout(()=>{ save(); saveT=null; },700); }
+
+  function applyTheme(){ root.dataset.theme = state.theme==="light"?"light":"dark"; }
+  function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+  function clamp(n,min,max){ return Math.max(min, Math.min(max,n)); }
+  function fmtTime(sec){ const m=Math.floor(sec/60), s=sec%60; return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0"); }
+  function escapeHTML(s){ return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m])); }
+  function escapeHTMLAttr(s){ return String(s).replace(/"/g,"&quot;"); }
+  function hashPool(ids){ return ids.join("|"); }
+
+  function toggleFullscreen(){
+    const el=document.documentElement;
+    if(!document.fullscreenElement) el.requestFullscreen?.();
+    else document.exitFullscreen?.();
+  }
+
+  let toastT=null;
+  function toast(msg){
+    let node=document.getElementById("toast");
+    if(!node){
+      node=document.createElement("div");
+      node.id="toast";
+      node.style.position="fixed";
+      node.style.left="50%";
+      node.style.bottom="16px";
+      node.style.transform="translateX(-50%)";
+      node.style.background="rgba(0,0,0,.75)";
+      node.style.color="white";
+      node.style.padding="10px 14px";
+      node.style.borderRadius="999px";
+      node.style.border="1px solid rgba(255,255,255,.18)";
+      node.style.boxShadow="0 14px 30px rgba(0,0,0,.35)";
+      node.style.zIndex=9999;
+      node.style.maxWidth="92vw";
+      node.style.fontSize="14px";
+      document.body.appendChild(node);
+    }
+    node.textContent=msg;
+    node.style.opacity="1";
+    if(toastT) clearTimeout(toastT);
+    toastT=setTimeout(()=>{ node.style.opacity="0"; },1600);
+  }
+})();
+</script>
+</body>
+</html>
